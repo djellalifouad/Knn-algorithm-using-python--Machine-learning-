@@ -40,13 +40,14 @@ def biggest(a, y, z):
 # petal length
 # petal width
 Object = lambda **kwargs: type("Object", (), kwargs)
+#define columns
 names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'Class']
 iris = pd.read_csv('./iris.csv', names=names, header=None)
 X = iris.iloc[:, 0:4]
 Y = iris.iloc[:, -1]
+print(Y)
 # now we need to get our training set and testing set
 X_train, X_test, Y_train, Y_test = sklearn.train_test_split(X, Y, test_size=5)
-
 
 for i in range(len(X_test)):
     print(X_test.iloc[i].name)
@@ -62,7 +63,7 @@ for i in range(len(X_test)):
         point.index  = X_train.iloc[j].name
         dist.append(point)
     dist.sort(key=lambda x: x.distance, reverse=False)
-    dist = dist[:10]
+    dist = dist[:5]
 
     print(dist)
     Iris_versicolor = 0
